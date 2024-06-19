@@ -1,0 +1,113 @@
+:root {
+	--Moderateviolet: hsl(263, 55%, 52%);
+	--Very-dark-grayish-blue: hsl(217, 19%, 35%);
+	--Very-dark-blackish-blue: hsl(219, 29%, 14%);
+	--White: hsl(0, 0%, 100%);
+	--Light-gray: hsl(0, 0%, 81%);
+	--Lightgrayish-blue: hsl(210, 46%, 95%);
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+}
+img {
+	display: block;
+	max-width: 100%;
+	border-radius: 50%;
+}
+* {
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+h1 {
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+body {
+	background-color: var(--Lightgrayish-blue);
+	display: grid;
+	min-height: 100vh;
+	place-content: center;
+	line-height: 1.5;
+}
+.container {
+	margin: 5rem;
+	display: grid;
+	grid-auto-columns: 1;
+	gap: 1rem;
+	grid-template-areas:
+		"one one two five"
+		"three four four five";
+}
+.user {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.bold {
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 700;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	color: var(--White);
+	border-radius: 0.5rem;
+	padding-block: 1rem;
+	padding-inline: 2rem;
+	box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.3);
+	p {
+		flex-grow: 1;
+	}
+}
+.card p {
+	color: hsla(0, 0%, 81%, 0.7);
+}
+.card[data-number="1"] {
+	grid-area: one;
+	background-color: var(--Moderateviolet);
+}
+.card[data-number="2"] {
+	grid-area: two;
+	background-color: var(--Very-dark-grayish-blue);
+}
+.card[data-number="3"] {
+	grid-area: three;
+	color: var(--Very-dark-blackish-blue);
+	background-color: var(--White);
+	.bold {
+		color: rgba(0, 0, 0, 0.7);
+	}
+	p {
+		color: hsla(217, 30%, 14%, 0.7);
+	}
+}
+.card[data-number="4"] {
+	grid-area: four;
+	background-color: var(--Very-dark-blackish-blue);
+}
+.card[data-number="5"] {
+	grid-area: five;
+	color: var(--Very-dark-blackish-blue);
+	background-color: var(--White);
+	.bold {
+		color: rgba(0, 0, 0, 0.7);
+	}
+	p {
+		max-width: 35ch;
+		color: hsl(219, 29%, 14%, 0.7);
+	}
+}
+@media (max-width: 768px) {
+	.container {
+		grid-template-areas:
+			"one"
+			"two"
+			"three"
+			"four"
+			"five";
+		margin: 1rem;
+		grid-auto-columns: 1fr;
+	}
+}
